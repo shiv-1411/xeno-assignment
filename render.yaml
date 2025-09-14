@@ -28,7 +28,6 @@ services:
   - type: web
     name: xeno-shopify-dashboard
     env: static
-    region: oregon
     buildCommand: npm install && npm run build
     staticPublishPath: ./build
     envVars:
