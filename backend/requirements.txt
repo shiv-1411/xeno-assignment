@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+python-dotenv
+requests
+passlib
+python-jose
+bcrypt
+fastapi-users[sqlalchemy]
+celery
+redis
