@@ -15,11 +15,15 @@ from app.db.base import Base
 
 def create_tables():
     """Create all database tables."""
-    engine = create_engine(settings.DATABASE_URL)
+    from app.db.session import engine, ensure_schema_exists
+    
+    # Ensure schema exists first
+    ensure_schema_exists()
     
     # Create all tables
     Base.metadata.create_all(bind=engine)
     print("All database tables created successfully!")
+    print(f"Schema: {settings.DATABASE_SCHEMA}")
 
 if __name__ == "__main__":
     create_tables()

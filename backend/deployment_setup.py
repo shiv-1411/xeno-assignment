@@ -24,9 +24,14 @@ def get_password_hash(password: str) -> str:
 
 def setup_deployment():
     """Setup database and populate with mock data for deployment"""
+    from app.db.session import ensure_schema_exists
+    
+    # Ensure schema exists first
+    ensure_schema_exists()
     
     print("🚀 Setting up Xeno Shopify Analytics for deployment...")
     print(f"📊 Mock Mode: {'Enabled' if not settings.USE_SHOPIFY_API else 'Disabled'}")
+    print(f"🗄️ Database Schema: {settings.DATABASE_SCHEMA}")
     
     db: Session = SessionLocal()
     

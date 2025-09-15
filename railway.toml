@@ -1,0 +1,23 @@
+# Railway Deployment Configuration
+# https://railway.app
+
+# Backend Service
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "cd backend && python run.py"
+
+# Environment Variables
+[env]
+USE_SHOPIFY_API = "false"
+API_V1_STR = "/api/v1" 
+SHOPIFY_API_VERSION = "2023-10"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = "30"
+PORT = "8000"
+
+# Health Check
+[healthcheck]
+path = "/health"
+port = 8000
