@@ -3,9 +3,9 @@ services:
   - type: web
     name: xeno-shopify-api
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python run.py
+    plan: starter
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && python start.py
     envVars:
       - key: USE_SHOPIFY_API
         value: "false"
@@ -27,12 +27,11 @@ services:
         value: xeno
 
   # Frontend Static Site - Free Tier
-  - type: web
+  - type: static
     name: xeno-shopify-dashboard
-    env: static
-    plan: free
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./build
+    plan: starter
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/build
     envVars:
       - key: REACT_APP_API_URL
         value: https://xeno-shopify-api.onrender.com
