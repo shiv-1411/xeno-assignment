@@ -29,11 +29,10 @@ services:
   # Frontend Static Site - Free Tier
   - type: web
     name: xeno-shopify-dashboard
-    env: static
+    env: node
     plan: starter
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./build
-    rootDir: frontend
+    buildCommand: npm run build
+    startCommand: npm start
     envVars:
       - key: REACT_APP_API_URL
         value: https://xeno-api-4zes.onrender.com

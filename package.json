@@ -1,0 +1,15 @@
+{
+  "name": "xeno-shopify-analytics",
+  "version": "1.0.0",
+  "description": "Shopify Analytics Dashboard",
+  "scripts": {
+    "start": "npx serve -s static-build -l $PORT",
+    "build": "cd frontend && npm install && npm run build && cp -r build ../static-build"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
