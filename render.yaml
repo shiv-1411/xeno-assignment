@@ -27,8 +27,9 @@ services:
         value: xeno
 
   # Frontend Static Site - Free Tier
-  - type: static
+  - type: web
     name: xeno-shopify-dashboard
+    env: static
     plan: starter
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/build
