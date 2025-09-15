@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Shopify Analytics Dashboard",
   "scripts": {
-    "start": "npx serve -s static-build -l $PORT",
-    "build": "cd frontend && npm install && npm run build && cp -r build ../static-build"
+    "start": "npx serve -s static-build -p $PORT",
+    "build": "cd frontend && npm install && npm run build && npx shx cp -r build ../static-build"
   },
   "dependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "shx": "^0.3.4"
   },
   "engines": {
     "node": ">=16.0.0"
